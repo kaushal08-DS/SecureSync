@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2>🧠 AI Security Insights</h2>
+
+    <div class="stats-card mt-4">
+
+        <h4>Upload Activity: {{ upload_count }}</h4>
+        <h4>Delete Activity: {{ delete_count }}</h4>
+
+        <hr>
+
+        <h2>
+            Risk Level:
+            <span style="color:#22c55e">
+                {{ risk_level }}
+            </span>
+        </h2>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2>👤 User Profile</h2>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+
+            <div class="stats-card">
+                <h3>Files Uploaded</h3>
+                <h1>{{ user_files }}</h1>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="stats-card">
+                <h3>Audit Logs</h3>
+                <h1>{{ logs }}</h1>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

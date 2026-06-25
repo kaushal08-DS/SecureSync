@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register | GhostVault
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5">
+
+                <div class="glass-card">
+
+                    <h1 class="text-center mb-4">
+                        Create Account
+                    </h1>
+
+                    <form method="POST">
+
+                        <div class="mb-3">
+
+                            <label class="mb-2">
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                name="username"
+                                class="form-control form-control-lg">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="mb-2">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control form-control-lg">
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="mb-2">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control form-control-lg">
+
+                        </div>
+
+                        <button
+                            class="btn btn-primary w-100 btn-lg">
+
+                            Register
+
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-4">
+
+                        Already have an account?
+
+                        <a href="/login">
+                            Login
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

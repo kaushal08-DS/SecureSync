@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<div class="container mt-4">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+                <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+                    {{ message }}
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert">
+                    </button>
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+</div>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h3 class="logo">
+            👻 GhostVault
+        </h3>
+
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/audit">🛡️ Audit Logs</a>
+        <a href="/analytics">📊 Analytics</a>
+        <a href="/heatmap">🔥 Activity Heatmap</a>
+        <a href="/profile">👤 Profile</a>
+        <a href="/insights">🧠 AI Insights</a>
+        <a href="/logout">🚪 Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content w-100">
+
+        <!-- Flash messages -->
+        <div class="container mt-3">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+
+                {% if messages %}
+
+                    {% for category, message in messages %}
+
+                        <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+                            {{ message }}
+
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endwith %}
+
+        </div>
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

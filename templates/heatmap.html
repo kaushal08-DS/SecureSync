@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2 class="mb-4">🔥 Activity Heatmap</h2>
+
+    {% if data|length == 0 %}
+
+        <div class="glass-card p-4">
+            <h4>No activity yet</h4>
+        </div>
+
+    {% else %}
+
+        <div class="glass-card p-4">
+
+            <canvas id="activityChart"></canvas>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% if data|length > 0 %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const activityData = {{ data|tojson }};
+
+const labels = activityData.map(item => item.date);
+const counts = activityData.map(item => item.count);
+
+const ctx = document.getElementById('activityChart');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Activities',
+            data: counts
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+{% endif %}
+
+{% endblock %}
