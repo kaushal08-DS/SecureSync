@@ -33,10 +33,10 @@ import requests
 from cryptography.fernet import Fernet
 
 
-VAULT_TOKEN = "ghostvault_super_secret_2026"
+VAULT_TOKEN = os.getenv("ghostvault_super_secret_2026")
 
 app = Flask(__name__)
-app.secret_key = "your_super_secret_key"
+app.secret_key = os.getenv("SECRET_KEY")
 app.config.from_object(Config)
 
 db.init_app(app)
