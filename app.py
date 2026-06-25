@@ -174,7 +174,7 @@ def upload():
 
     # Store key in Key Vault
     requests.post(
-        "http://localhost:5001/store_key",
+        "https://securesync-keyvault.onrender.com/store_key",
 
         headers={
             "Authorization":
@@ -242,7 +242,7 @@ def download(file_id):
         return "Unauthorized"
     
     response = requests.get(
-        f"http://localhost:5001/get_key/{file.filename}",
+        f"https://securesync-keyvault.onrender.com/get_key/{file.filename}",
 
         headers={
             "Authorization":
@@ -252,7 +252,7 @@ def download(file_id):
 
     # Get key from Key Vault
     response = requests.get(
-        f"http://localhost:5001/get_key/{file.filename}",
+        f"https://securesync-keyvault.onrender.com/get_key/{file.filename}",
         headers={
             "Authorization": f"Bearer {VAULT_TOKEN}"
         }
